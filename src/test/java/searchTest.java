@@ -12,11 +12,11 @@ public searchTest (){
 
 }
 
-//@BeforeTest
-//public static void setUp(){
-//        RestAssured.baseURI = "https://jsonplaceholder.typicode.com";
-//
-//    }
+@BeforeTest
+public static void setUp(){
+        RestAssured.baseURI = "https://jsonplaceholder.typicode.com";
+
+    }
 
 @Test
 public void searchUser()
