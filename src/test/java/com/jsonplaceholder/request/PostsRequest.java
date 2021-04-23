@@ -7,9 +7,9 @@ import io.restassured.response.Response;
 import static com.jsonplaceholder.api.endpoints.POSTS;
 import static io.restassured.RestAssured.given;
 
-public class PostRequestSpecification {
+public class PostsRequest {
 
-    public static Response getPosts(int userId) {
+    public static Response getPosts(String userId) {
         Response response = given()
                 .contentType(ContentType.JSON)
                 .param("userId", userId)

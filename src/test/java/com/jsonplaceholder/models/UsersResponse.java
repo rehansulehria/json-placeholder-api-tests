@@ -23,5 +23,4 @@ public class UsersResponse {
     public List<String> geo;
 
 
-
 }
