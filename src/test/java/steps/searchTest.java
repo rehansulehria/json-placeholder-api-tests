@@ -18,14 +18,14 @@ public class searchTest {
     public searchTest() {
 
     }
-    @Given("^I search for User \"([^\"]*)\"$")
+    @Given("^I search for user \"([^\"]*)\"$")
         public void searchUser (String username)
         {
              users = Arrays.asList(UserRequest.getUser(username).getBody().as(UsersResponse[].class));
         }
 
-    @Then("^User \"([^\"]*)\" is found$")
-    public void userIsFound(String arg0) throws Throwable {
-        assertThat(users.stream().anyMatch(s -> s.getUsername().contains("Delphine")), is(true));
+    @Then("^User \"([^\"]*)\" is returned in response$")
+    public void userIsFound(String username)  {
+        assertThat(users.stream().anyMatch(s -> s.getUsername().contains(username)), is(true));
     }
 }
