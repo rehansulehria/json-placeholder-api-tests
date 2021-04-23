@@ -12,7 +12,7 @@ public class PostRequestSpecification {
         return RestAssured
                 .given().contentType(ContentType.JSON)
                 .when()
-                .get("https://jsonplaceholder.typicode.com" + POSTS)
+                .get(POSTS)
                 .then().extract().response().as(Posts.class);
     }
 }
