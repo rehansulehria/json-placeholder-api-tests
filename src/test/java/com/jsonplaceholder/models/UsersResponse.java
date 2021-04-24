@@ -1,26 +1,43 @@
 package com.jsonplaceholder.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Map;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class UsersResponse {
+    @JsonProperty("id")
     public int id;
-    public String name;
-    public String username;
-    public String email;
-    public List<String> address;
-    public String phone;
-    public String website;
-    public List<String> Company;
-    public List<String> geo;
 
+    @JsonProperty("email")
+    public String email;
+
+    @JsonProperty("username")
+    public String username;
+
+    @JsonProperty("name")
+    public String name;
+
+    @JsonProperty("website")
+    public String website;
+
+    @JsonProperty("address")
+    public Map address;
+
+    @JsonProperty("phone")
+    public String phone;
+
+    @JsonProperty("company")
+    public Map company;
 
 }

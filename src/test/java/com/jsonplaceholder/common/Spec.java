@@ -1,25 +1,27 @@
 package com.jsonplaceholder.common;
 
-import com.jsonplaceholder.api.endpoints;
+import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
+import org.junit.Before;
 
+import static com.jsonplaceholder.api.endpoints.BASEURI;
 import static org.hamcrest.Matchers.*;
 
 public class Spec {
-    public static RequestSpecification requestSpec;
+    public static RequestSpecBuilder requestSpec;
     public static ResponseSpecification successResponseSpec;
 
-    public Spec() {
-        Spec.requestSpec = new RequestSpecBuilder()
-                .setBaseUri(endpoints.BASEURI)
-                .addHeader("Content-Type", "application/json")
-                .build();
-        Spec.successResponseSpec = new ResponseSpecBuilder()
-                .expectStatusCode(anyOf(is(200), is(201)))
-                .expectStatusCode(is(both(greaterThanOrEqualTo(100)).and(lessThanOrEqualTo(399))))
-                .build();
+
+    @Before
+    public static RequestSpecification getCommonSpec() {
+        RequestSpecBuilder reqBuilder = new RequestSpecBuilder();
+        reqBuilder.setBaseUri(BASEURI)
+                .setContentType(ContentType.JSON);
+        RequestSpecification reqSpec = reqBuilder.build();
+        return reqSpec;
     }
 }
