@@ -23,4 +23,4 @@ jobs:
             - ~/.m2
           key: v1-dependencies-{{ checksum "pom.xml" }}
 
-      - run: mvn test -Dcucumber.options="classpath:features/"
+      - run: mvn clean test
