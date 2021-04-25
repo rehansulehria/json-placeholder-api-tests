@@ -6,11 +6,11 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "steps",
-        tags = {"@posts"},
+        tags = {"@users, @posts, @comments"},
         plugin = {
                 "json:target/cucumber-reports/cucumber.json"
         }
 
 )
-public class RunTest {
+public class BaseTest {
 }

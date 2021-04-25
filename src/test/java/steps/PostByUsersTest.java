@@ -7,7 +7,7 @@ import cucumber.api.java.en.Then;
 import java.util.List;
 
 public class PostByUsersTest {
-    public List<PostsResponse> posts;
+    private List<PostsResponse> posts;
 
 
     @Then("^I search for user post by user \"([^\"]*)\"$")

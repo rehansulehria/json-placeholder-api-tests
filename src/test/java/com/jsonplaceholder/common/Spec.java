@@ -20,8 +20,9 @@ public class Spec {
     public static RequestSpecification getCommonSpec() {
         RequestSpecBuilder reqBuilder = new RequestSpecBuilder();
         reqBuilder.setBaseUri(BASEURI)
-                .setContentType(ContentType.JSON);
-        RequestSpecification reqSpec = reqBuilder.build();
+                .setContentType(ContentType.JSON)
+                .setUrlEncodingEnabled(false);
+        RequestSpecification reqSpec = reqBuilder.build().log().all();
         return reqSpec;
     }
 }
